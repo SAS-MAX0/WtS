@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word to Story GEN</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <script src="config.js"></script>"
+  </head>
+  <body>
+    <audio id="type-sound" src="type.wav" preload="auto"></audio>
+    <div class="container">
+      <header>
+        <h1>Word to Story</h1>
+        <p>Add some words. Get a story.</p>
+      </header>
+
+      <main class="main-card">
+
+        <section>
+          <h2 class="font-serif">1. Add Your Words</h2>
+          <div class="input-group">
+            <input type="text" id="word-input" placeholder="Enter a single word...">
+            <button id="add-word-btn" class="btn btn-primary">Add Word</button>
+          </div>
+          <div class="mystery-word-container">
+            <button id="mystery-word-btn" class="btn btn-secondary">Need inspiration? Try a Mystery Word</button>
+          </div>
+        </section>
+
+        <section>
+          <h2 class="font-serif">2. Your Word List</h2>
+          <div id="word-list-container" class="word-list-area">
+            <p id="empty-list-msg">Your words will appear here...</p>
+          </div>
+        </section>
+
+        <section class="customize-section">
+          <h2 class="font-serif">3. Customize Your Story</h2>
+          <div class="selectors-grid">
+            <div>
+              <label for="tone-selector">Tone</label>
+              <select id="tone-selector">
+                <option value="surprising">Surprising / Twist</option>
+                <option value="funny">Funny</option>
+                <option value="horror">Horror</option>
+                <option value="sci-fi">Sci-Fi</option>
+              </select>
+            </div>
+            <div>
+              <label for="length-selector">Length</label>
+              <select id="length-selector">
+                <option value="2-3 sentences">Short</option>
+                <option value="6-8 sentences" selected>Medium</option>
+                <option value="10-12 sentences">Long</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="generate-container">
+            <button id="generate-story-btn" class="btn btn-primary" disabled>
+              <span id="generate-btn-text">Generate Story</span>
+              <div id="loader" class="loader hidden"></div>
+            </button>
+          </div>
+        </section>
+
+        <section id="story-output-section" class="hidden">
+          <h2 class="font-serif">4. Your Story</h2>
+          <div id="story-output-container" class="story-output-area">
+            <h3 id="story-title"></h3>
+            <div id="story-output"></div>
+          </div>
+          <div id="story-actions">
+            <button id="download-btn" class="btn btn-secondary">Download as Image</button>
+            <button id="copy-btn" class="btn btn-secondary">Copy Text</button>
+          </div>
+        </section>
+
+      </main>
+
+      <footer>
+        <button id="start-over-btn" class="btn btn-secondary">Start Over</button>
+      </footer>
+
+    </div>
+
+  </body>
+  <script src="script.js"></script>
+</html>
